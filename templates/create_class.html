@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="POST" class='create_class_form'>
+{% csrf_token %}
+{{form.as_p}}
+<input type="hidden" value="{{user.id}}" name="owner">
+    <input type="submit" value="CREATE" class="save_btn">
+   
+</form>
+{% endblock content %}

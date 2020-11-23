@@ -1,0 +1,62 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EduPoint</title>
+    <link rel="stylesheet" href="{% static 'Visor.css' %}" type="text/css">
+    
+</head>
+<style>
+
+ .start-it{
+     color: blue;
+     border-color: blue;
+ }   
+.start-it:hover{
+    background-color: blue;
+    color: #1f1e1e;
+}    
+.curtain{
+    background-image: url('/static/blue.jpg');
+}
+#viewport{
+    background-image: repeating-linear-gradient(45deg,black,yellow);
+}
+#question-box{
+    border-color: yellow;
+}
+.population{
+    border-color: yellow;
+}
+</style>
+<body onload="fullLoaded()">
+    <input type="hidden" value="{{class.id}}" id="class_id">
+    <input type="hidden" value="{{user.id}}" id="user_id">
+    <input type="hidden" value="{{user.username}}" id="user_name">
+        <script src="{% static 'peerjs.js' %}"></script>
+        <script src="{% static 'Viewer.js' %}"></script>
+    <div class="curtain" >
+        <button class="start-it"  onclick="enterClass()">Enter</button>
+    </div>
+    <video id='viewport'></video>
+    <div class="overlay">
+            <p id="title">  {{class.title}} by {{class.owner.username}}</p>
+        <div class="population">
+            <div class="head"></div>
+            <div class="body"></div>
+            <p id="num-population">0000</p>
+            <a href="/report" id='report-btn' target="_blank" > Report an Issue</a>
+            <img onclick="muteStream()" src="{%static 'play.png'%}" id='playBtn'>
+            
+        </div>
+        <div id='question-box'><input id="question" type="text"><button onclick="Ask()" id="question-btn">Ask</button></div>
+        <img onclick="muteStream()" src="{%static 'unmute.png'%}" id='pausePlayimg'>
+    <div id="questions"></div>
+    <div id="board" ><img id="image"></div>
+    <p id="paused-message">Stream Paused</p>
+    </div>
+</body>
+</html>

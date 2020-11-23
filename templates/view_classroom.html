@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+<span>
+    <h1 id="class-title">{{class.title}}</h1>
+    <a href="{{action}}/{{class.id}}" class='action-btn'>{{action}}</a>
+    {% if status == ""%}
+    
+    {% else %}
+     <a href="/{{status}}/{{class.id}}" target="_blank"  class='action-btn'>{{status}}</a>
+    {% endif %}
+   
+</span>
+<hr>
+<ul id="data-list">
+    <li>Teacher: {{class.owner.username}}</li>
+    <li>Fee: ₹{{class.fee}} per month</li>
+    <li>Starts at: {{class.start_time}}</li>
+    <li>Ends at: {{class.end_time}}</li>
+    <li>No of students: {{nos}}</li>
+    <li>Rating: {{avg_rating}}%</li>
+    <li>On: {% for day in days %}{{day}},   
+    {% endfor %}</li>
+</ul>
+<hr>
+<p id="class-description">{{class.description}}</p>
+<hr>
+<h2>Review</h2>
+<hr>
+
+<div >
+   <form method="POST" class="add-review-container">{% csrf_token %}
+        <div id='slider-container'>
+            <p id="value-box"></p>
+            <input type="range" id="rating-slider" name="rating" required max="100" min="0" step="1" oninput="valueIndicator()">
+            
+        </div>
+        <textarea name="review" class="review-box" cols="30" rows="10" required placeholder="Type here to add your review "></textarea>
+        <p class="reviewer-name">{{user.username}} :</p>
+        <input type="submit" value="Submit" class='submit-btn'>
+   </form>
+</div>
+
+{% for review in reviews %}
+
+<div class="add-review-container">  
+{% if  user == review.reviewer%}
+<form method="POST" id='delete_btn'>{% csrf_token %}
+    <input type="hidden" value="{{review.id}}" name="comment_id">
+    <input type="submit" id='delete_btn_input' value="Delete">
+</form>
+{% else %}
+ 
+{% endif %}
+         <p id="rating">Rating : {{review.rating}}%</p>
+         <textarea name="review" class="review-box" cols="30" rows="10" required readonly>{{review.review}}</textarea>
+         <p class='reviewer-name'>{{review.reviewer.username}} :</p>
+ </div>
+{% endfor %}
+{% endblock content %}

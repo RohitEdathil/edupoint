@@ -1,0 +1,84 @@
+
+body {
+    background-image: url('lights.png');
+	height: 600px;
+}
+div{
+	display: grid;
+	grid-template-columns: 100px 300px;
+	background-color: aliceblue;
+	width: 400px;
+	position: absolute;
+	top:45%;
+	left: 35%;
+	padding: 20px 10px 30px 10px;
+	border-style: outset;
+	border-radius: 30px;
+	border-width: 10px;
+	box-shadow: black 6px 6px 15px;
+	transition-property: all;
+	transition-duration: 0.3s;
+}
+
+p{
+	text-align: center;
+	font-size: 15px;
+	margin-left: -29px;
+	text-transform: uppercase;
+	font-family: fantasy;
+}
+input{
+	height: 35px;
+	border-radius: 20px;
+	box-shadow:black  6px 6px 9px;
+	border-style: outset;
+	border-width: 5px;
+	outline-offset: 0px;
+	outline: none;
+
+}
+article{
+	grid-area:3/2 ;
+	padding: 10px;
+}
+
+input:focus {
+	transform:translateY(-8px);
+	box-shadow:black  14px 14px 9px;
+}
+#sub{
+	grid-area: 4/2;
+	margin-top: 10px;
+	margin-bottom: -10px;
+	font-family: fantasy;
+	font-size: 15px;
+	width: 45%;
+	background-color: white;
+}
+#sub:active{
+	background-color: #03ff03;
+	border-color: #03ff03;
+}
+h1{
+	position: relative;
+	font-family: fantasy;
+	color: white;
+	font-size: 115px;
+	border-style: none;
+	position: absolute;
+	top:9%;
+	left: 35%;
+}
+div:hover{
+	transform: translateY(-10px);
+	box-shadow: black 16px 16px 15px;
+	transform: scale(1.05)
+}
+#error{
+	color: red;
+	text-transform: capitalize;
+	position: relative;
+	top: 488px;
+    left: 45px;
+	
+}

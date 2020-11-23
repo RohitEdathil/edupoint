@@ -1,0 +1,225 @@
+
+button{
+    cursor: pointer;
+}
+
+body{
+    height: 616px;
+    margin: 0px;
+}
+input:focus{
+    outline:none;
+}
+.curtain{
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    background-image: url('red.jpg');
+    transition-property: all;
+    transition-duration: 300ms;
+}
+.start-it{
+    display: none;
+    border-radius: 17px;
+    position: relative;
+    left: 43%;
+    top: 43%;
+    opacity: 0.9;
+    background: #000000;
+    color: #f80000a1;
+    border-color: #f80000a1;
+    height: 15%;
+    width: 15%;
+    transition-property: all;
+    transition-duration: 300ms;
+    font-family: monospace;
+    font-size: 251%;
+}
+.start-it:hover{
+    background-color: #f80000a1;
+    color: #1f1e1e;
+}
+#viewport{
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background-image: repeating-linear-gradient(45deg,black,#06f95cad);
+    transform: scale(-1,1);
+}
+.overlay{
+    position: fixed;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+}
+.population{
+    display: block;
+    background-color: #333333;
+    width: 115px;
+    height: 27px;
+    border-radius: 20px;
+    padding: 6px;
+    margin: 15px;
+    border-color: #3eb568;
+    border-width: 3px;
+    border-style: outset;
+}
+.head{
+    height: 10px;
+    width: 10px;
+    background-color: white;
+    border-radius: 50%;
+    margin-left: 7px;
+}
+.body{
+    background-color: white;
+    height: 15px;
+    width: 19px;
+    margin-left: 3px;
+    border-radius: 10px 10px 4px 4px;
+    margin-top: 1px;
+}
+#num-population{
+    position: relative;
+    top: -36px;
+    left: 44px;
+    color:white;
+}
+#pausePlayimg{
+    border-radius: 50%;
+    position: relative;
+    height: 79px;
+    width: 79px;
+    top: 365px;
+    left: 43px;
+    cursor: pointer;
+}
+#question-box{
+    position: relative;
+    top: 432px;
+    left: 374px;
+    display: flex;
+    height: 42px;
+    width: 500px;
+    border-color: #3eb568;
+    border-width: 3px;
+    border-style: outset;
+    border-radius: 20px;
+}
+#question{
+    width: 90%;
+    width: 90%;
+    border-radius: 16px 0px 0px 16px;
+    font-size: 20px;
+}
+#question-btn{
+    width: 10%;
+    border-radius: 0px 16px 16px 0px;
+    border-style: none;
+    color: white;
+    background-color: #1f1e1e;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+#question-btn:hover{
+    background-color: rgb(0, 110, 255);
+    color: black;
+}
+#questions{
+    z-index: 3;
+    overflow: auto;
+    height: 500px;
+    width: 300px;
+    position: relative;
+    bottom: 216px;
+    left: 936px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+#questions::-webkit-scrollbar{
+    border-right-style: solid;
+    border-width: 5px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-color: #1f1e1e;
+    width: 40px;
+}
+#questions::-webkit-scrollbar-thumb{
+    width: 5px;
+    border-radius: 30px;
+    background-color: rgba(0, 255, 255, 0);
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-style: solid;
+    border-color: #000000;
+    border-width: 5px;
+}
+.a-question{
+    background-color: white;
+    padding: 8px;
+    border-radius: 10px;
+    margin: 3px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    align-self: flex-end;
+    width: fit-content;
+}
+#board{
+    z-index: 4;
+    background: white;
+    position: relative;
+    height:400px;
+    width: 550px;
+    top: -638px;
+    left:-550px;
+    transition-property: all;
+    transition-duration: 0.3s;
+}
+#show-board{
+    border-radius: 50%;
+    position: relative;
+    height: 79px;
+    width: 79px;
+    top: -618px;
+    left: 151px;
+    cursor: pointer;
+}
+#title{
+    background-color: #1f1e1e;
+    color: white;
+    position: relative;
+    font-family: sans-serif;
+    height: 40px;
+    font-size: 30px;
+    margin: 0px;
+    border: #ecf1ee solid;
+}
+#paused-message{
+    position: relative;
+    top: -1054px;
+    color: white;
+    font-size: 85px;
+    left: 400px;
+    display: none;
+}
+
+#playBtn{
+    display:none;
+    border-radius: 50%;
+    position: relative;
+    height: 79px;
+    width: 79px;
+    left: 320%;
+    cursor: pointer;
+    top: 600%;
+}
+#report-btn{
+	background-color: red;
+    color: white;
+    text-decoration: none;
+    position: fixed;
+    top: 93%;
+    left: 90%;
+    padding: 10px;
+    border-radius: 15px;
+}

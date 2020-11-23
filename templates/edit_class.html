@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="POST" class='create_class_form'>
+{% csrf_token %}
+{{form.title.errors}}
+<p><label for="id_title">Title:</label> <input type="text" name="title" maxlength="50" value='{{class.title}}' required id="id_title"></p>
+{{form.description.errors}}
+<p><label for="id_description">Description:</label> <textarea name="description" cols="40" rows="10" maxlength="1000" required id="id_description">{{class.description}}
+</textarea></p>
+{{form.start_time.errors}}
+<p><label for="id_start_time">Start time:</label> <input type="text" name="start_time" value='{{class.start_time}}' required id="id_start_time"></p>
+{{form.end_time.errors}}
+<p><label for="id_end_time">End time:</label> <input type="text" name="end_time" value='{{class.end_time}}' required id="id_end_time"></p>
+{{form.fee.errors}}
+<p><label for="id_fee">Fee:</label> <input type="number" name="fee" step="0.01" value='{{class.fee}}' required id="id_fee"></p>
+<p><label for="id_sunday">Sunday:</label> <input type="checkbox" name="sunday" id="id_sunday" {{sunday}}></p>
+<p><label for="id_monday">Monday:</label> <input type="checkbox" name="monday" id="id_monday" {{monday}}></p>
+<p><label for="id_tuesday">Tuesday:</label> <input type="checkbox" name="tuesday" id="id_tuesday" {{tuesday}}></p>
+<p><label for="id_wednesday">Wednesday:</label> <input type="checkbox" name="wednesday" id="id_wednesday" {{wednesday}}></p>
+<p><label for="id_thursday">Thursday:</label> <input type="checkbox" name="thursday" id="id_thursday" {{thursday}}></p>
+<p><label for="id_friday">Friday:</label> <input type="checkbox" name="friday" id="id_friday" {{friday}}></p>
+<p><label for="id_saturday">Saturday:</label> <input type="checkbox" name="saturday" id="id_saturday" {{saturday}}><input type="hidden" name="owner" id="id_owner"></p>
+<input type="hidden" value="{{user.id}}" name="owner">
+    <input type="submit" value="SAVE" class="save_btn">
+    <a id="delete-btn" href="/classroom/Delete/{{class.id}}">Delete Classroom</a>
+   
+</form>
+{% endblock content %}

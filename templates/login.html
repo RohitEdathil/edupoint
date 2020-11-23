@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+<head><title>EduPoint</title></head>
+	<link href="{% static "login.css" %}" rel="stylesheet" type="text/css">
+	<link rel="icon" href="{% static 'favicon.png' %}" sizes="16x16" type="image/png"> 
+<!--	<link href="C:\Users\Rohit V\ExhibitionWebApp\ProjectMinerva\edupoint\assets\login.css" rel="stylesheet" type="text/css">-->
+<body>
+	<h1>EduPoint</h1>
+<form method="post">
+	{% csrf_token %}
+	<div>
+	<p>Username:</p>
+	<input type="text" name="username">
+	<p>Password:</p>
+	<input type="password" name="password">
+		<article>New here?<a href="signup">Sign Up</a>
+		{% ifnotequal error "" %}
+		<a href="forgot_password" style="color:red">Forgot Password</a>
+		{% else %}
+		{% endifnotequal %}
+		</article>
+			<input id = "sub" type="submit" value="LOG IN">
+	</div>
+	</form>
+	<p id="error">{{error}}</p>
+	</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

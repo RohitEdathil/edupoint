@@ -1,0 +1,56 @@
+<!doctype html>
+{% load static %}
+<html>
+<head>
+	<title>EduPoint</title>
+	<link href="{% static 'base.css' %}" type="text/css" rel="stylesheet">
+	<link rel="icon" href="{% static 'favicon.png' %}" sizes="16x16" type="image/png"> 
+	<script src="{% static 'base.js' %}"></script>
+<!--	<link href="C:\Users\Rohit V\ExhibitionWebApp\ProjectMinerva\edupoint\assets\base.css" type="text/css" rel="stylesheet">-->
+	</head>
+	<body onload="Main()">
+	     <audio src="{%static 'notif.mp3'%}" id='notif-sound'></audio>
+		<div class="whole">
+		<div id='head'>
+			<input type="hidden" id="user_id" value="{{user.id}}">
+             <a id="heading" href="/">EduPoint</a>
+			<div id='cur_user_container'>
+			    <button onclick="Logout()" class='profile_option' href="/logout" style="background-color:transparent; border-style: none;">Log Out</button>
+				<a href="/propic" class='profile_option'>Change Profile Pic</a>
+				<a href="/change_password" class='profile_option'>Change Password</a>
+			    <a href='/payments' class='profile_option'> ₹{{user.balance}}</a>
+			</div>
+			<div id="name-container" onclick="showit()"><img src="{{ user.propic.url }}" id="propic" alt=""><p id="username">{{user.username}}</p></div>
+
+			<a href="/report" id='report-btn'> Report an Issue</a>
+		</div> 
+		<div id='cont'>{% block content %}{%endblock%}</div>
+		<div id='nav'>
+			<a href="/" class = 'nav-button'> <img src="{% static 'home.png' %}"class="icon"> <h2 class='nav_text'>Home</h2></a>
+			<a href="/classes" class = 'nav-button'><img src="{% static 'classes.png' %}"class="icon"><h2 class='nav_text'>Classes</h2></a>
+			<a href="/my_classrooms" class = 'nav-button'><img src="{% static 'classroom.png' %}"class="icon"><h2 class='nav_text'>My Classrooms </h2></a>
+			<a href="/payments" class = 'nav-button'><img src="{% static 'payments.png' %}"class="icon"><h2 class='nav_text'>Payments</h2></a>
+			<a href="/about" class = 'nav-button'><img src="{% static 'about.jpg' %}"class="icon"><h2 class='nav_text'>About</h2></a>
+			<a href="/feedback" class = 'nav-button'><img src="{% static 'feedback.png' %}"class="icon"><h2 class='nav_text'>Feedback</h2></a>
+		</div>
+			
+		
+			</div>
+			<div >
+					<a href="/" class="notif-hidden" id='bar'> </a>
+					<button id="close-notif" onclick="hideAlert()">X</button>
+				</div>
+		
+	
+
+	
+	
+	
+	</body>
+
+
+
+
+
+
+</html>

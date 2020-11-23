@@ -1,0 +1,42 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EduPoint</title>
+    <link rel="stylesheet" href="{% static 'Visor.css' %}" type="text/css">
+    
+    <link rel="stylesheet" href="{% static 'drawingboard.css' %}" type="text/css">
+</head>
+<body onload="fullLoaded()">
+    <input type="hidden" value="{{class.id}}" id="class_id">
+    <input type="hidden" value="{{user.id}}" id="user_id">
+    <input type="hidden" value="{{user.username}}" id="user_name">
+        <script src="{% static 'peerjs.js' %}"></script>
+        <script src="{% static 'Streamer.js' %}"></script>
+        <script src="{% static 'jquery.js' %}"></script>
+        <script src="{% static 'drawingboard.js' %}"></script>
+
+    <div class="curtain">
+        <button class="start-it" onclick="startClass()">Start</button>
+    </div>
+    <video id='viewport' muted></video>
+    <div class="overlay">
+            <p id="title">  {{class.title}} <small style="font-size: 16px">by {{class.owner.username}}</small></p>
+        <div class="population">
+            <div class="head"></div>
+            <div class="body"></div>
+            <p id="num-population">0000</p>
+            <a href="/report" id='report-btn' target="_blank" > Report an Issue</a>
+        </div>
+        <div id='question-box'><input id="question" type="text"><button onclick="Ask()" id="question-btn">Ask</button></div>
+        <img onclick="pauseStream()" src="{%static 'pause.png'%}" id='pausePlayimg'>
+    <div id="questions"></div>
+    <div id="board" ></div>
+    <img onclick="showBoard()" src="{%static 'board.png'%}" id='show-board'>
+    <p id="paused-message">Stream Paused</p>
+    </div>
+</body>
+</html>

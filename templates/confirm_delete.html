@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 style="color:red">Do you really want to delete this Classroom?(This can't be undone)</h1>
+<br>
+<a href="{{id}}/yes" class="action-btn">YES</a><a class="action-btn" href="{{id}}/no">NO</a>
+{% endblock content %}

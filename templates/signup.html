@@ -1,0 +1,33 @@
+<!doctype html>
+{% load static %}
+<html>
+<head>
+	<title>EduPoint</title>
+	<link href="{% static 'signup.css' %}" type="text/css" rel="stylesheet">
+	<link rel="icon" href="{% static 'favicon.png' %}" sizes="16x16" type="image/png"> 
+<!--	<link href="C:\Users\Rohit V\ExhibitionWebApp\ProjectMinerva\edupoint\assets\signup.css" type="text/css" rel="stylesheet">-->
+	</head>
+	<body><div>
+		     <h1>Sign Up</h1>
+		     <form method="post" enctype="multipart/form-data">
+				 {% csrf_token %}
+		         <p>Username:        </p><input type="text"     name='username'>
+				 <p>Email-id:        </p><input type="text"     name='email'>
+				 <p>Password:        </p><input type="password" name='password'>
+				 <p>Confirm Password:</p><input type="password" name='confirm_pass'>
+				 <input id="btn" type="submit" value="Confirm" >
+		     </form>
+		  </div>
+		
+		<p id="error">
+			{{error}}
+		</p>
+	</body>
+
+
+
+
+
+
+
+</html>

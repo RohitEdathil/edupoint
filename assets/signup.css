@@ -1,0 +1,69 @@
+body{
+	background-image: url('lights.png');
+}
+
+div{
+	display: grid;
+	position: absolute;
+	left: 35%;
+	text-align: center;
+
+	font-family: sans-serif;
+	color: White;
+	font-size: 30px;
+	
+}
+h1{
+	margin: 15px;
+}
+form{
+	display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: rgba(234, 234, 234, 0.34);
+    border-radius: 30px;
+    color: black;
+    height: 400px;
+    font-size: 17px;
+    font-family: cursive;
+    padding-right: 15px;
+    padding-top: 10px;
+	
+}
+input{
+	border-radius: 20px;
+	height: 35px;
+	text-align: center;
+	border-width: 5px;
+	box-shadow: 5px 5px 9px;
+	border-style: outset;
+	outline-offset: 0px;
+	outline: none;
+
+}
+#btn{
+	position:relative;
+	left:75px;
+	background-color: white;
+	
+}
+input:focus{
+	box-shadow: 13px 13px 17px;
+	transform: translateY(-8px);
+}
+#btn:active{
+	background-color: #03ff03;
+	border-color: #03ff03;
+}
+#error{
+	color: red;
+	position: absolute;
+	top: 575px;
+    left: 440px;
+    text-align: center;
+	width: 400px;
+}
+#uploader{
+	display: flex;
+	background-color: white;
+	
+}

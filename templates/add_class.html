@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="GET" class="class_search">
+    <input type="text" class="search_bar search_commons" placeholder="Search for classes" name="keyword">
+    <input type="submit" class="search_button search_commons" value="SEARCH">
+</form>
+<div class="grid-container">
+	{% for class,color in output %}
+			<a href="classroom/{{class.id}}" class='title-box' style="background-color: {{color}}">
+				{{class.title}}<p class='lil-text'>{{class.owner.username}}</p>
+				<p class="lil-text">₹{{class.fee}}</p></a>
+	{% endfor %}
+	<p class="notfound">{{error}}</p>
+	
+	
+</div>
+{% endblock content %}

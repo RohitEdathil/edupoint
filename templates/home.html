@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="content_heading">Notifications</h1>
+<hr>
+{% for notif in notifs %}
+<div class='notif-container' id='container-{{notif.id}}'>
+    <div onclick="notifClick({{notif.id}},{{notif.classroom.id}})">
+        <p>{{notif.note}}</p>
+    </div>
+    <button onclick='delNotif({{notif.id}})' class="clear-notif">X</button>
+</div>
+{% endfor %}
+<script>
+function delNotif(id){
+    ele = document.getElementById('container-'+ id);
+    ele.style.transform = 'rotate(-90deg)';
+    ele.style.opacity = '0';
+    setTimeout(() => {
+    ele.style.display = 'none';
+        
+    }, 300);
+    ws.send(JSON.stringify({
+        id:user_id,
+        token:token,
+        cmd:'del_notif',
+        attrib:id
+    }))
+}
+function notifClick(id,class_id) {
+    delNotif(id)
+    window.location.href='/classroom/'+class_id;
+    
+}
+</script>
+{% endblock %}
